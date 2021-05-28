@@ -28,3 +28,26 @@ form input {
     margin: 10px 0;
     padding: 5px 10px;
 }
+
+/************* CoursesCard ******************/
+
+.card {
+    text-align: center;
+    width: 300px;
+    margin: 20px auto;
+    padding: 40px 0;
+    background-color: tomato;
+    border-radius: 5px;
+    color: white;
+}
+
+.card p {
+    margin: 6px 0;
+}
+
+/************* CoursesGrid ******************/
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

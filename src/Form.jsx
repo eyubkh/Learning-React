@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Card extends React.Component {
+export default class Form extends React.Component {
     constructor(){
         super();
         this.state = {
@@ -19,6 +19,7 @@ export default class Card extends React.Component {
     };
 
     clockSeconds(){
+        // console.log('hello')
         this.setState({
             date: new Date().getSeconds()
         });
@@ -44,13 +45,11 @@ export default class Card extends React.Component {
     }  
 
     componentDidMount() {
-        let el = document.getElementById('hola');
-        console.log(el)
+        // let el = document.getElementById('hola');
         this.clockInterval = setInterval(this.clockSeconds, 1000)
     }
 
     componentDidUpdate() {
-        console.log('hello')
     }
 
     componentWillUnmount() {
