@@ -1,6 +1,4 @@
 import React from 'react';
-import CoursesCard from './CoursesCard';
-
 const coursesDB = [
     {
       "id": 1,
@@ -30,25 +28,20 @@ const coursesDB = [
       "price": 10,
       "teacher": "Alvaro Felipe"
     }
-  ]
+]
 
-
-const CoursesGrid = ({match}) =>
-    (
-        <section className="grid">
-            {
-                coursesDB.map(item => 
-                    <CoursesCard 
-                        key={item.id}
-                        id={item.id}
-                        image={item.image}
-                        title={item.title}
-                        teacher={item.teacher}
-                        price={item.price}
-                    />
-                )   
-            }
-        </section>
+export default function Course({match}) {
+    const currentCourse = coursesDB.filter( item => item.id === parseInt(match.params.id))[0];
+    console.log(currentCourse)
+    return currentCourse
+    ? (
+        <>
+        <h1>{currentCourse.title}</h1>
+        <img src={currentCourse.image} alt={currentCourse.title} />
+        <p>Teacher : {currentCourse.teacher}</p>
+        </>
     )
+    : <h1>Page not find</h1> 
 
-export default  CoursesGrid;
+};
+

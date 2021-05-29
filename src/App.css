@@ -4,9 +4,11 @@
     box-sizing: border-box;
 }
 
+/*  */
+
 .header {
     width: 100%;
-    height: 300px;
+    height: calc(100vh - 80px);
     background-image: url('https://www.creativefabrica.com/wp-content/uploads/2020/03/08/Silhouette-city-building-in-the-morning-Graphics-3365873-1.jpg');
     background-position: bottom;
     background-size: cover;

@@ -1,11 +1,12 @@
 import React from 'react';
+import Menu from '../../components/organisms/Menu';
 
 export default class Form extends React.Component {
     constructor(){
         super();
         this.state = {
-            name:  '.',
-            email: '.',
+            name:  '',
+            email: '',
             date: new Date().getSeconds()
         };
 
@@ -19,7 +20,6 @@ export default class Form extends React.Component {
     };
 
     clockSeconds(){
-        // console.log('hello')
         this.setState({
             date: new Date().getSeconds()
         });
@@ -28,6 +28,7 @@ export default class Form extends React.Component {
     render() {
         return (
             <>
+            <Menu />
                 <form id="hola" action=''>
                     <label htmlFor="">Name: </label>
                     <input type="text" placeholder="Name" onChange={e => this.changeState('name' , e)} />
@@ -45,7 +46,6 @@ export default class Form extends React.Component {
     }  
 
     componentDidMount() {
-        // let el = document.getElementById('hola');
         this.clockInterval = setInterval(this.clockSeconds, 1000)
     }
 

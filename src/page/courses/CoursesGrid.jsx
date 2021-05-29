@@ -1,4 +1,6 @@
 import React from 'react';
+import CoursesCard from '../../components/molecules/CoursesCard';
+import Menu from '../../components/organisms/Menu';
 const coursesDB = [
     {
       "id": 1,
@@ -28,21 +30,28 @@ const coursesDB = [
       "price": 10,
       "teacher": "Alvaro Felipe"
     }
-]
+  ]
 
-export default function Course({match}) {
-    console.log(match)
-    const currentCourse = coursesDB.filter( item => item.id === parseInt(match.params.id));
-    return currentCourse[0]
-    ? (
-        <>
-        <h1>{currentCourse[0].title}</h1>
-        <img src={currentCourse[0].image} alt={currentCourse[0].title} />
-        <p>Teacher : {currentCourse[0].teacher}</p>
-        </>
+
+const CoursesGrid = () =>
+    (
+      <>
+      <Menu />
+        <section className="grid">
+            {
+                coursesDB.map(item => 
+                    <CoursesCard 
+                        key={item.id}
+                        id={item.id}
+                        image={item.image}
+                        title={item.title}
+                        teacher={item.teacher}
+                        price={item.price}
+                    />
+                )   
+            }
+        </section>
+      </>
     )
-    : <h1>Page not find</h1> 
 
-
-};
-
+export default  CoursesGrid;
